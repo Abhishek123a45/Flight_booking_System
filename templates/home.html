@@ -1,0 +1,75 @@
+
+
+{%extends 'base.html' %}
+{%block body%}
+
+<div class="h-screen">
+
+    <div class="w-full pl-10 pr-10 mt-10">
+        <div class="flex justify-between items-center">
+            <h1 class="text-5xl">Welcome To Flight Booking System, Let's Fly</h1>
+            <div>
+                <form action="/mybookings" method="POST">
+                    <button type="submit" class="cursor-pointer bg-black text-white hover:bg-gray-900 px-4 py-4">My Bookings</button>
+                </form>
+            </div>
+
+            <div>
+                <form action="/logout">
+
+                    <button type="submit" class="cursor-pointer bg-black text-white hover:bg-gray-900 px-4 py-4">Logout</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="border border-gray-600 mt-10">
+            <form action="/flight_search" method="POST" class="flex justify-between items-center border border-gray-600 p-3">
+                <label for="date">Date:</label>
+                <input type="date" name = 'date' id="name" required class="border border-gray-600">
+
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time" required class="border border-gray-600">
+
+                <label for="flight_number">Flight Number : </label>
+                <input type="number" name="flight_number" id="flight_number" required class="border border-gray-600">
+                
+                <input type="submit" value="Search" class="cursor-pointer bg-black text-white hover:bg-gray-900 px-4 py-4">
+              </form>
+        </div>
+    </div>
+
+    <div class="mt-5 pr-10 pl-10">
+        <table class="border">
+            <tr>
+                <th>Flight Number</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Seats</th>
+                <th>Edit</th>
+            </tr>
+        {%for flight in flight_info_table%}
+            <tr>
+                
+                <td>{{flight.flight_number}}</td>
+                <td>{{flight.orgin}}</td>
+                <td>{{flight.destination}}</td>
+                <td>{{flight.departure_time}}</td>
+                <td>{{flight.arrival_time}}</td>
+                <td>{{flight.total_seats}}</td>
+                <td>
+                    <form action="/bookTicket" method="post">
+                        <input type="number" name = 'flight_number' value = {{flight.flight_number}} hidden>
+                        <button type="submit" class="text-purple underline">Book</button>
+                    </form>
+                </td>
+            </tr>
+            
+        {% endfor %}
+        </table>
+    </div>
+
+
+</div>
+{%endblock%}

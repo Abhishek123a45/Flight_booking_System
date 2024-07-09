@@ -1,0 +1,91 @@
+{%extends 'base.html' %}
+
+{%block body%}
+<div class="h-screen  flex flex-col justify-between items-center gap-20">
+
+    <div class="mt-10 w-full pl-10 pr-10">
+        <div>
+            <h1 class="text-5xl">Welcome To Flight Booking System, Let's Fly</h1>
+        </div>
+
+        <div class="mt-5">
+            <form action="/search" method="POST" class="flex justify-between items-center border border-gray-600 px-5">
+                <label for="date">Date:</label>
+                <input type="date" name = 'date' id="name" required>
+
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time" required>
+
+                <label for="flight_number">Flight Number : </label>
+                <input type="number" name="flight_number" id="flight_number" required class="border border-gray-600">
+                <br><br>
+                <input type="submit" value="Search" class="cursor-pointer bg-black text-white hover:bg-gray-900 px-4 py-1">
+              </form>
+        </div>
+    </div>
+
+    <div class="w-full pl-10 pr-10">
+        <table class="border">
+            <tr>
+                <th>Flight Number</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                <th>Seats</th>
+                <th>Edit</th>
+            </tr>
+        {%for flight in flight_info_table%}
+            <tr>
+                
+                <td>{{flight.flight_number}}</td>
+                <td>{{flight.orgin}}</td>
+                <td>{{flight.destination}}</td>
+                <td>{{flight.departure_time}}</td>
+                <td>{{flight.arrival_time}}</td>
+                <td>{{flight.total_seats}}</td>
+                <td>
+                    <form action="/removeflight" method="post">
+                        <input type="number" name = 'flight_number' value = {{flight.flight_number}} hidden>
+                        <button type="submit" class="text-purple underline">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            
+        {% endfor %}
+        </table>
+    </div>
+
+    <div class="flex justify-between items-center w-full pr-10 pl-10 mb-10">
+        <div>
+
+            <form action="/addflights" method="POST" class="flex justify-between items-center border border-gray-600">
+                <label for="">flightnumber</label>
+                <input type="number" name = 'flightnumber' required class="border border-gray-600">
+    
+                <label for="">Origin</label>
+                <input type="text" name = 'origin' required class="border border-gray-600">
+    
+                <label for="">Destination</label>
+                <input type="text" name = 'destination' required class="border border-gray-600">
+    
+                <label for="">Arrival Time</label>
+                <input type="time" name = 'arrival_time' required>
+    
+                <label for="">Departure Time</label>
+                <input type="time" name = 'departure_time'required>
+    
+                <label for="">Date</label>
+                <input type="date" name = 'date' required>
+    
+                <label for="">Seats</label>
+                <input type="number" name = 'seats' required class="border border-gray-600">
+    
+                <button class="cursor-pointer bg-black text-white hover:bg-gray-900 px-4 py-1">Add</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{%endblock%}

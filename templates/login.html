@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="h-screen flex flex-col justify-center items-center">
+    <div class="border-2 border-black p-10 rounded">
+
+    <form action="/login" method="POST" class="flex flex-col gap-20">
+        <input type="email" name = 'email' id='email' placeholder = "Enter your email" required class="border border-black text-black p-4">
+        <input type="password" name = 'password' id = 'password' placeholder="Enter your password" required class="border border-black text-black p-4">
+        <button type="submit" class="px-5 py-3 bg-black text-white hover:bg-gray-500 hover:text-black" >Login</button>
+    </form>
+
+    <div>Don't have an account? <a href="/signup" class="text-blue-500 hover:text-blue-800">Sign up</a></div>
+</div>
+    <div>
+        {{message}}
+    </div>
+</div>
+{% endblock%}

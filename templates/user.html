@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block body%}
+
+    <div class="border border-red-500 flex flex-col justify-center items-center gap-20 h-screen">
+        <div>
+            <h1 class="text-4xl">Select User Type</h1>
+        </div>
+        <div>
+            <form action="/adminlogin">
+
+                <button class="px-5 py-3 bg-black text-white hover:bg-gray-500 hover:text-black">Admin</button>
+            </form>
+        </div>
+
+        <div>
+            <form action="/login">
+
+                <button class="px-5 py-3 bg-black text-white hover:bg-gray-500 hover:text-black">User</button>
+            </form>
+        </div>
+    </div>
+    
+{% endblock%}

@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="h-screen flex flex-col justify-center items-center">
+    <div class="border-2 border-black p-10 rounded">
+        <form action="/signup" method="POST" class="flex flex-col gap-20">
+            <input type="text" name = 'name' placeholder="Enter your name please" class="border border-black text-black p-4">
+            <input type="email" name = 'email' id='email' placeholder = "Enter your email" class="border border-black text-black p-4">
+            <input type="password" name = 'password' id = 'password' placeholder="Enter your password" class="border border-black text-black p-4">
+            <button type="submit" class="px-5 py-3 bg-black text-white hover:bg-gray-500 hover:text-black" >Signup</button>
+        </form>
+    </div>
+    <div>
+        {{message}}
+    </div>
+</div>
+{% endblock%}
