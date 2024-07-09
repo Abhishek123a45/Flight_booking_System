@@ -11,6 +11,6 @@ admin email : admin@gmail.com
 admin password : admin
 
 # Tech Stack
-API Framework : Flask
-Database : Sqlite
-UI Framework : Tailwind css
+1. API Framework : Flask
+2. Database : Sqlite
+3. UI Framework : Tailwind css
