@@ -16,7 +16,6 @@ admin password : admin
 3. UI Framework : Tailwind css
 
 # Screenshots
-![Screenshot (23)](https://github.com/Abhishek123a45/Flight_booking_System/assets/118557081/1fca5749-66c1-4c0a-a579-3154538a55c7)
 
 ![Screenshot (24)](https://github.com/Abhishek123a45/Flight_booking_System/assets/118557081/16cc92aa-67e0-455f-be13-694e4bd89bdf)
 
